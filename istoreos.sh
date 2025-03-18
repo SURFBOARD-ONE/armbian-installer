@@ -1,19 +1,11 @@
 #!/bin/bash
 mkdir -p openwrt
 
-REPO="SURFBOARD-ONE/armbian-installer"
-TAG="2025-03-12"
-FILE_NAME="istoreos-24.10.0-rc4-2025012013-x86-64-squashfs-combined-efi.img.gz"
+DOWNLOAD_URL="https://fw0.koolcenter.com/iStoreOS/alpha/x86_64_efi/istoreos-24.10.0-rc4-2025012013-x86-64-squashfs-combined-efi.img.gz"
 OUTPUT_PATH="openwrt/istoreos.img.gz"
-DOWNLOAD_URL=$(curl -s https://api.github.com/repos/$REPO/releases/tags/$TAG | jq -r '.assets[] | select(.name == "'"$FILE_NAME"'") | .browser_download_url')
-
-if [[ -z "$DOWNLOAD_URL" ]]; then
-  echo "错误：未找到文件 $FILE_NAME"
-  exit 1
-fi
 
 echo "下载地址: $DOWNLOAD_URL"
-echo "下载文件: $FILE_NAME -> $OUTPUT_PATH"
+echo "下载文件 -> $OUTPUT_PATH"
 curl -L -o "$OUTPUT_PATH" "$DOWNLOAD_URL"
 
 if [[ $? -eq 0 ]]; then
