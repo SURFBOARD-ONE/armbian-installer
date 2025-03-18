@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p openwrt
 
-REPO="wukongdaily/armbian-installer"
+REPO="SURFBOARD-ONE/armbian-installer"
 TAG="2025-03-12"
 FILE_NAME="istoreos-24.10.0-rc4-2025012013-x86-64-squashfs-combined-efi.img.gz"
 OUTPUT_PATH="openwrt/istoreos.img.gz"
